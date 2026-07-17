@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Personal Assistant</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="header">
+    <h1>🤖 AI Personal Assistant</h1>
+    <p>Ask Questions • Summarize Emails</p>
+</div>
+
+<div class="dashboard">
+
+    <!-- LEFT SIDEBAR -->
+    <div class="sidebar">
+
+        <div class="sidebar-header">
+            <h2>💬 Chat History</h2>
+            <button id="clearHistory">Clear</button>
+        </div>
+
+        <div id="historyContainer">
+            <div class="empty-history">
+                No conversations yet.
+            </div>
+        </div>
+
+    </div>
+
+
+    <!-- MAIN CONTENT -->
+    <div class="main-content">
+
+        <!-- Ask AI -->
+        <div class="card">
+
+            <h2>Ask Anything</h2>
+
+            <form id="askForm">
+
+                <input
+                    type="text"
+                    name="question"
+                    placeholder="Ask any question..."
+                    required
+                >
+
+                <button type="submit">
+                    Ask AI
+                </button>
+
+            </form>
+
+            <div id="ans-loading" class="loading">
+                <div class="spinner"></div>
+                <span>Thinking...</span>
+            </div>
+
+            <div class="response-box">
+
+                <div class="response-header">
+
+                    <span>Response</span>
+
+                    <button
+                        type="button"
+                        id="copyAnswer"
+                    >
+                        Copy
+                    </button>
+
+                </div>
+
+                <p id="answer"></p>
+
+            </div>
+
+        </div>
+
+
+        <!-- Email Summarizer -->
+
+        <div class="card">
+
+            <h2>Email Summarizer</h2>
+
+            <form id="emailForm">
+
+                <textarea
+                    name="email"
+                    rows="8"
+                    placeholder="Paste your email here..."
+                    required
+                ></textarea>
+
+                <button type="submit">
+                    Summarize
+                </button>
+
+            </form>
+
+            <div id="summary-loading" class="loading">
+                <div class="spinner"></div>
+                <span>Thinking...</span>
+            </div>
+
+            <div class="response-box">
+
+                <div class="response-header">
+
+                    <span>Summary</span>
+
+                    <button
+                        type="button"
+                        id="copySummary"
+                    >
+                        Copy
+                    </button>
+
+                </div>
+
+                <p id="summary"></p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+
+</body>
+</html>
